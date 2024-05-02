@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: clamp(16px, 1vw + 1px, 20px);
+}
+h1 {
+  font-size: 2.5rem;
+  position: relative;
+  margin-top: 2rem;
+}
+p {
+  margin: 0;
+}
+.title {
+  font-style: italic;
+}
+.title::after {
+  content: ", ";
+}
+.author {
+  color: #60a0c0;
+}
+.author::before {
+  content: "by ";
+}
+.book {
+  padding: 1.5em;
+  background-color: #ebedf0;
+}
+.pages::after {
+  content: " pages";
+}
+.status::before {
+  content: "Status: ";
+}
+h1,
+body > p,
+footer {
+  text-align: center;
+}
+@media (prefers-color-scheme: dark) {
+  .book {
+    background-color: #1f2937;
+  }
+}
+.fa-github {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-size: 2rem;
+  text-decoration: none;
+}
