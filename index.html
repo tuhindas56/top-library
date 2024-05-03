@@ -13,74 +13,53 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./css/style.css" />
-    <script defer src="./index.js"></script>
+    <script defer src="./js/index.js"></script>
   </head>
   <body>
-    <h1>Odin Library</h1>
-    <p>
-      built as part of
-      <a
-        href="https://www.theodinproject.com/lessons/node-path-javascript-library"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        The Odin Project Curriculum
-      </a>
-    </p>
+    <header>
+      <h1>Odin Library</h1>
+      <p>
+        built as part of
+        <a
+          href="https://www.theodinproject.com/lessons/node-path-javascript-library"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          The Odin Project Curriculum
+        </a>
+      </p>
+    </header>
 
     <main class="container">
-      <h2>Books</h2>
-
-      <details class="book" open>
-        <summary>
-          <span class="title">Relativity - The Special And General Theory</span>
-          <span class="author">Albert Einstein</span>
-        </summary>
-        <p class="pages">164</p>
-        <p class="status">Not read</p>
-      </details>
-
-      <details class="book">
-        <summary>
-          <span class="title">Brief Answers to the Big Question</span>
-          <span class="author">Stephen Hawking</span>
-        </summary>
-        <p class="pages">256</p>
-        <p class="status">Read</p>
-      </details>
-
-      <details class="book">
-        <summary>
-          <span class="title">The Selfish Gene</span>
-          <span class="author">Richard Dawkins</span>
-        </summary>
-        <p class="pages">224</p>
-        <p class="status">Not read</p>
-      </details>
-
-      <button class="add-book">Add a book</button>
+      <div class="flex">
+        <h2>Books</h2>
+        <button class="add-book outline">Add a book</button>
+      </div>
 
       <dialog>
         <form action="#">
+          <i class="fa-solid fa-xmark"></i>
+          <hr />
           <label for="title">Title</label>
-          <input type="text" id="title" name="title" placeholder="A really good book" />
+          <input type="text" id="title" name="title" placeholder="A really good book" required />
           <label for="author">Author</label>
-          <input type="text" id="author" name="author" placeholder="John Doe" />
+          <input type="text" id="author" name="author" placeholder="John Doe" required />
           <label for="pages">Total number of pages</label>
-          <input type="number" min="1" id="pages" name="pages" placeholder="100" />
+          <input type="number" min="1" id="pages" name="pages" placeholder="100" required />
           <input type="checkbox" id="read" name="status" value="read" />
           <label for="read">Have read</label>
           <hr />
           <button type="submit" class="add-book">Add Book</button>
+          <input type="reset" value="Reset" />
         </form>
       </dialog>
+      <noscript>This page requires JavaScript to function properly!</noscript>
     </main>
+
     <footer>
       <p>
         built by
-        <a href="https://github.com/tuhindas56/" target="_blank" rel="noopener noreferrer">
-          Tuhin Das
-        </a>
+        <a href="https://github.com/tuhindas56/" target="_blank" rel="noopener noreferrer"> Tuhin Das </a>
       </p>
     </footer>
     <a

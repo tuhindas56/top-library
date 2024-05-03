@@ -6,12 +6,25 @@
 html {
   font-size: clamp(16px, 1vw + 1px, 20px);
 }
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
 h1 {
   font-size: 2.5rem;
   position: relative;
   margin-top: 2rem;
 }
-p {
+h2 {
+  display: inline;
+  margin: 0;
+}
+main {
+  flex: 1;
+}
+details p {
   margin: 0;
 }
 .title {
@@ -33,11 +46,14 @@ p {
 .pages::after {
   content: " pages";
 }
+.status {
+  margin-bottom: 1rem;
+}
 .status::before {
   content: "Status: ";
 }
 h1,
-body > p,
+body > header > p,
 footer {
   text-align: center;
 }
@@ -47,9 +63,43 @@ footer {
   }
 }
 .fa-github {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   right: 30px;
   font-size: 2rem;
   text-decoration: none;
+}
+.fa-xmark {
+  position: relative;
+  left: 19rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.secondary {
+  padding: 4px 10px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+.flex > button {
+  height: 2.5rem;
+  padding-block: 0;
+}
+noscript {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+}
+noscript:before {
+  content: "⚠︎";
+}
+.fa-toggle-on,
+.fa-toggle-off {
+  font-size: 1.4rem;
+}
+.fa-trash-can:hover {
+  color: lightcoral;
 }
