@@ -67,8 +67,8 @@ function appendToDOM(array) {
   newStatusElement.classList.add("status");
   newButtonGroup.setAttribute("role", "group");
   newDeleteElement.classList.add("outline", "fa-regular", "fa-trash-can");
-  status == "Read" ? newToggleElement.classList.add("fa-toggle-on") : newToggleElement.classList.add("fa-toggle-off");
   newToggleElement.classList.add("outline", "fa-solid");
+  status == "Read" ? newToggleElement.classList.add("fa-toggle-on") : newToggleElement.classList.add("fa-toggle-off");
 
   // Assign data attribute
   newBookElement.setAttribute("data-index", count);
@@ -93,8 +93,14 @@ function appendToDOM(array) {
 
 function deleteBook(event) {
   let eventIndex;
-  eventIndex = event.target.dataset.index;
-  myLibrary.splice(+eventIndex, 1);
+  eventIndex = +event.target.dataset.index;
+  myLibrary.splice(eventIndex, 1);
+  document
+    .querySelector(`details[data-index="${eventIndex}"] button.fa-trash-can`)
+    .removeEventListener("click", deleteBook);
+  document
+    .querySelector(`details[data-index="${eventIndex}"] button.fa-solid`)
+    .removeEventListener("click", toggleStatus);
   document.querySelector(`details[data-index="${eventIndex}"]`).remove();
   myLibrary.forEach((book, index) => {
     book.index = index;
@@ -112,16 +118,13 @@ function reassignIndex(item, index) {
 
 function toggleStatus(event) {
   let eventIndex;
-  eventIndex = event.target.dataset.index;
-  myLibrary[eventIndex].status = myLibrary[eventIndex].status === "Read" ? "Not read" : "Read";
-  const toReplace = document.querySelector(`.fa-solid[data-index="${eventIndex}"]`);
-  if (toReplace.classList.contains("fa-toggle-on")) {
-    toReplace.classList.replace("fa-toggle-on", "fa-toggle-off");
-  } else {
-    toReplace.classList.replace("fa-toggle-off", "fa-toggle-on");
-  }
+  eventIndex = +event.target.dataset.index;
+  myLibrary[eventIndex].toggleReadStatus();
+  const toggleElement = document.querySelector(`.fa-solid[data-index="${eventIndex}"]`);
+  toggleElement.classList.toggle("fa-toggle-on");
+  toggleElement.classList.toggle("fa-toggle-off");
   const textReplace = document.querySelector(`.status[data-index="${eventIndex}"]`);
-  textReplace.textContent = textReplace.textContent === "Not read" ? "Read" : "Not read";
+  textReplace.textContent = myLibrary[eventIndex].status;
 }
 
 // Open dialog button
