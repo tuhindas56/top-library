@@ -45,9 +45,7 @@ function createBookObject(array: string[]) {
   myLibrary.push(newBook)
 }
 
-const resetButton = document.querySelector(
-  'input[type="reset"]'
-) as HTMLButtonElement
+const resetButton = document.querySelector('input[type="reset"]') as HTMLButtonElement
 
 function appendToDOM(array: string[]) {
   const [title, author, pages, status] = array
@@ -119,9 +117,7 @@ function deleteBook(event: Event) {
   ) as HTMLButtonElement
   readToggleBtn.removeEventListener("click", toggleStatus)
 
-  const bookToRemove = document.querySelector(
-    `details[data-index="${eventIndex}"]`
-  ) as HTMLElement
+  const bookToRemove = document.querySelector(`details[data-index="${eventIndex}"]`) as HTMLElement
   bookToRemove.remove()
 
   myLibrary.forEach((book, index) => {
@@ -161,9 +157,7 @@ const dialog = document.querySelector("dialog") as HTMLDialogElement
 openDialogBtn.addEventListener("click", () => dialog.showModal())
 
 // Form submit button
-const addBookButton = document.querySelector(
-  'button[type="submit"]'
-) as HTMLButtonElement
+const addBookButton = document.querySelector('button[type="submit"]') as HTMLButtonElement
 addBookButton.addEventListener("click", (event) => {
   event.preventDefault()
 
@@ -195,25 +189,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "164",
     "Not read",
   ])
-  appendToDOM([
-    "Relativity - The Special And General Theory",
-    "Albert Einstein",
-    "164",
-    "Not read",
-  ])
+  appendToDOM(["Relativity - The Special And General Theory", "Albert Einstein", "164", "Not read"])
 
-  createBookObject([
-    "Brief Answers to the Big Question",
-    "Stephen Hawking",
-    "256",
-    "Read",
-  ])
-  appendToDOM([
-    "Brief Answers to the Big Question",
-    "Stephen Hawking",
-    "256",
-    "Read",
-  ])
+  createBookObject(["Brief Answers to the Big Question", "Stephen Hawking", "256", "Read"])
+  appendToDOM(["Brief Answers to the Big Question", "Stephen Hawking", "256", "Read"])
 
   createBookObject(["The Selfish Gene", "Richard Dawkins", "224", "Not read"])
   appendToDOM(["The Selfish Gene", "Richard Dawkins", "224", "Not read"])
