@@ -127,7 +127,8 @@ addBookButton.addEventListener("click", (event) => {
     event.preventDefault();
     const inputs = document.querySelectorAll("input");
     for (let input of inputs) {
-        if (input.value == null || input.value == "") {
+        if (!input.validity.valid) {
+            input.reportValidity();
             return;
         }
     }
@@ -147,9 +148,24 @@ document.addEventListener("DOMContentLoaded", () => {
         "164",
         "Not read",
     ]);
-    appendToDOM(["Relativity - The Special And General Theory", "Albert Einstein", "164", "Not read"]);
-    createBookObject(["Brief Answers to the Big Question", "Stephen Hawking", "256", "Read"]);
-    appendToDOM(["Brief Answers to the Big Question", "Stephen Hawking", "256", "Read"]);
+    appendToDOM([
+        "Relativity - The Special And General Theory",
+        "Albert Einstein",
+        "164",
+        "Not read",
+    ]);
+    createBookObject([
+        "Brief Answers to the Big Question",
+        "Stephen Hawking",
+        "256",
+        "Read",
+    ]);
+    appendToDOM([
+        "Brief Answers to the Big Question",
+        "Stephen Hawking",
+        "256",
+        "Read",
+    ]);
     createBookObject(["The Selfish Gene", "Richard Dawkins", "224", "Not read"]);
     appendToDOM(["The Selfish Gene", "Richard Dawkins", "224", "Not read"]);
 });
